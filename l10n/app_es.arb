@@ -1,0 +1,101 @@
+{
+  "@@locale": "es",
+  "appTitle": "Cognitive Shuffler",
+  "tagline": "Deja que las palabras fluyan.",
+  "begin": "Comenzar",
+  "putPhoneDown": "Deja el teléfono. Las palabras siguen.",
+  "sleepTimer": "Temporizador",
+  "timerInfinite": "Hasta que pare",
+  "minutesShort": "{minutes} min",
+  "@minutesShort": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "noise": "Ruido",
+  "on": "Activado",
+  "off": "Desactivado",
+  "cueLanguage": "Idioma de las palabras",
+  "english": "Inglés",
+  "spanish": "Español",
+  "settings": "Ajustes",
+  "pause": "Pausa",
+  "resume": "Continuar",
+  "stop": "Terminar",
+  "endSession": "Terminar sesión",
+  "noTimer": "Sin temporizador",
+  "paused": "En pausa",
+  "noiseSheetTitle": "Ruido",
+  "level": "Nivel",
+  "pinkBrown": "Rosa / marrón",
+  "warmth": "Calidez",
+  "soft": "Suave",
+  "deep": "Profundo",
+  "showWords": "Mostrar palabras",
+  "screenHint": "Puedes apagar la pantalla. La reproducción continúa.",
+  "wordLanguage": "Idioma de las palabras",
+  "appLanguage": "Idioma de la app",
+  "systemDefault": "Sistema",
+  "voiceSpeed": "Velocidad de la voz",
+  "pauseBetweenWords": "Pausa entre palabras",
+  "secondsShort": "{seconds} s",
+  "@secondsShort": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "defaultTimer": "Temporizador predeterminado",
+  "fadeOut": "Desvanecido",
+  "fadeOff": "No",
+  "keepAwake": "Mantener pantalla encendida",
+  "showWordsOnScreen": "Mostrar palabras en pantalla",
+  "noiseDefaults": "Ruido",
+  "playNoise": "Reproducir ruido",
+  "noiseLevel": "Nivel de ruido",
+  "noiseColor": "Equilibrio rosa / marrón",
+  "appearance": "Apariencia",
+  "themeDark": "Oscuro",
+  "themeSystem": "Sistema",
+  "themeLight": "Claro",
+  "dynamicColor": "Usar color del fondo",
+  "about": "Acerca de",
+  "aboutIntro": "Una app tranquila y sin conexión que pronuncia una corriente lenta de sustantivos comunes y concretos. No hay nada que aprender ni lograr.",
+  "aboutMethodTitle": "Cómo funciona",
+  "aboutMethod": "El barajado cognitivo te da palabras sencillas y sin relación entre sí, fáciles de imaginar. Cada palabra es una escena pequeña. Deja que aparezca y luego suéltala. Si tu mente se distrae, esa es la idea.",
+  "aboutPrivacyTitle": "Privacidad",
+  "aboutPrivacy": "Sin permiso de internet. Sin cuentas. Sin analíticas. Tus ajustes se quedan en este dispositivo.",
+  "aboutSourcesTitle": "Palabras y licencias",
+  "aboutSources": "Los bancos de palabras se generan a partir de Princeton WordNet, FrequencyWords (OpenSubtitles), MultiWordNet, las valoraciones de concreción de Brysbaert y el léxico de concreción MEGAHit. La app y sus datos son software libre bajo GNU GPL v3 y CC BY-SA 4.0.",
+  "aboutLicense": "GNU General Public License v3.0 o posterior",
+  "version": "Versión {version}",
+  "@version": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "close": "Cerrar",
+  "done": "Listo",
+  "ttsUnavailable": "No hay una voz disponible para {language}. Instala un motor de texto a voz en los ajustes de Android.",
+  "@ttsUnavailable": {
+    "placeholders": {
+      "language": {
+        "type": "String"
+      }
+    }
+  },
+  "ttsInitFailed": "El motor de voz no pudo iniciarse.",
+  "notificationDenied": "Las notificaciones están desactivadas, así que los controles no aparecerán con la pantalla apagada.",
+  "startFailed": "No se pudo iniciar la sesión.",
+  "methodTitle": "Un pequeño experimento para una mente ocupada",
+  "methodBody": "Imagina cada palabra como una escena sencilla. No conectes las palabras. Cuando una desaparezca, deja que llegue la siguiente.",
+  "help": "Acerca del barajado cognitivo",
+  "pink": "Rosa",
+  "brown": "Marrón",
+  "sessionEnded": "Sesión terminada"
+}

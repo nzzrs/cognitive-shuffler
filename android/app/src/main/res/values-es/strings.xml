@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Cognitive Shuffler</string>
+    <string name="notification_session">Sesión de sueño</string>
+    <string name="notification_channel">Sesión de sueño</string>
+    <string name="notification_channel_description">Palabras y ruido con la pantalla apagada.</string>
+    <string name="notification_playing">Las palabras fluyen</string>
+    <string name="notification_paused">En pausa</string>
+    <string name="notification_infinite">Hasta que pares</string>
+    <string name="action_pause">Pausa</string>
+    <string name="action_resume">Continuar</string>
+    <string name="action_stop">Terminar</string>
+    <string name="action_extend">+15 min</string>
+</resources>

@@ -1,0 +1,1 @@
+Primera versión: palabras en inglés y español, voz del teléfono, ruido procedural, reproducción con la pantalla apagada, temporizador e interfaz Material 3 expresiva.

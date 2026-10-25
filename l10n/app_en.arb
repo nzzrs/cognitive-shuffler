@@ -1,0 +1,101 @@
+{
+  "@@locale": "en",
+  "appTitle": "Cognitive Shuffler",
+  "tagline": "Let the words drift.",
+  "begin": "Begin",
+  "putPhoneDown": "Put the phone down. The words keep going.",
+  "sleepTimer": "Sleep timer",
+  "timerInfinite": "Until I stop",
+  "minutesShort": "{minutes} min",
+  "@minutesShort": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "noise": "Noise",
+  "on": "On",
+  "off": "Off",
+  "cueLanguage": "Cue language",
+  "english": "English",
+  "spanish": "Spanish",
+  "settings": "Settings",
+  "pause": "Pause",
+  "resume": "Resume",
+  "stop": "End",
+  "endSession": "End session",
+  "noTimer": "No timer",
+  "paused": "Paused",
+  "noiseSheetTitle": "Noise",
+  "level": "Level",
+  "pinkBrown": "Pink / brown",
+  "warmth": "Warmth",
+  "soft": "Soft",
+  "deep": "Deep",
+  "showWords": "Show words",
+  "screenHint": "You can turn the screen off. Playback continues.",
+  "wordLanguage": "Word language",
+  "appLanguage": "App language",
+  "systemDefault": "System",
+  "voiceSpeed": "Voice speed",
+  "pauseBetweenWords": "Pause between words",
+  "secondsShort": "{seconds} s",
+  "@secondsShort": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "defaultTimer": "Default timer",
+  "fadeOut": "Fade out",
+  "fadeOff": "Off",
+  "keepAwake": "Keep screen on",
+  "showWordsOnScreen": "Show words on screen",
+  "noiseDefaults": "Noise",
+  "playNoise": "Play noise",
+  "noiseLevel": "Noise level",
+  "noiseColor": "Pink / brown balance",
+  "appearance": "Appearance",
+  "themeDark": "Dark",
+  "themeSystem": "System",
+  "themeLight": "Light",
+  "dynamicColor": "Use wallpaper colour",
+  "about": "About",
+  "aboutIntro": "A quiet, offline app that speaks a slow stream of ordinary, concrete nouns. There is nothing to learn and nothing to achieve.",
+  "aboutMethodTitle": "How it works",
+  "aboutMethod": "Cognitive shuffling gives your mind unrelated, easy-to-picture words. Each word is a small scene. Let the scene appear, then let it go. If your thoughts wander, that is the point.",
+  "aboutPrivacyTitle": "Privacy",
+  "aboutPrivacy": "No internet permission. No accounts. No analytics. Your settings stay on this device.",
+  "aboutSourcesTitle": "Words and licences",
+  "aboutSources": "Word pools are generated from Princeton WordNet, FrequencyWords (OpenSubtitles), MultiWordNet, the Brysbaert concreteness ratings and the MEGAHit concreteness lexicon. The app and its word data are free software under the GNU GPL v3 and CC BY-SA 4.0.",
+  "aboutLicense": "GNU General Public License v3.0 or later",
+  "version": "Version {version}",
+  "@version": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "close": "Close",
+  "done": "Done",
+  "ttsUnavailable": "No speech voice is available for {language}. Install a text-to-speech engine in Android settings.",
+  "@ttsUnavailable": {
+    "placeholders": {
+      "language": {
+        "type": "String"
+      }
+    }
+  },
+  "ttsInitFailed": "The speech engine could not start.",
+  "notificationDenied": "Notifications are off, so the sleep controls will not appear while the screen is off.",
+  "startFailed": "The session could not start.",
+  "methodTitle": "A small experiment for a busy mind",
+  "methodBody": "Picture each word as a simple scene. Do not connect the words. When a word disappears, let the next one arrive.",
+  "help": "About cognitive shuffling",
+  "pink": "Pink",
+  "brown": "Brown",
+  "sessionEnded": "Session ended"
+}

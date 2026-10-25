@@ -1,0 +1,13 @@
+Cognitive Shuffler es una app de sueño tranquila y sin conexión. Pronuncia una corriente lenta de sustantivos comunes y concretos —una escena pequeña a la vez— mientras suena, si quieres, un fondo de ruido rosa o marrón.
+
+No hay nada que aprender, contar ni lograr. Deja que cada palabra aparezca como una imagen sencilla y luego suéltala.
+
+• Palabras en inglés y español, generadas a partir de datos léxicos abiertos
+• Voz del teléfono, con control de velocidad
+• Ruido rosa/marrón procedural con control de calidez
+• Reproducción con la pantalla apagada y controles multimedia
+• Temporizador, desvanecido suave y +15 minutos desde la notificación
+• Diseño Material 3 expresivo con color del fondo
+• Sin cuentas, sin analíticas y sin permiso de internet
+
+Deja el teléfono. Las palabras siguen.

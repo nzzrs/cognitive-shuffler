@@ -1,0 +1,13 @@
+Cognitive Shuffler is a quiet, offline sleep app. It speaks a slow stream of ordinary, concrete nouns — one small scene at a time — while an optional bed of pink or brown noise plays underneath.
+
+There is nothing to learn, count or achieve. Let each word appear as a simple picture, then let it go.
+
+• English and Spanish word pools, generated from open lexical data
+• Phone text-to-speech, with a voice speed control
+• Procedural pink/brown noise with a warmth slider
+• Screen-off playback with media controls
+• Sleep timer, gentle fade-out and +15 minutes from the notification
+• Material 3 expressive design with wallpaper colour
+• No accounts, no analytics, no internet permission
+
+Put the phone down. The words keep going.
