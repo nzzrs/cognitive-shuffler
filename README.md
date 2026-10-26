@@ -40,14 +40,29 @@ Requirements:
 
 ```sh
 flutter pub get
+flutter analyze
 flutter test
 flutter build apk --release
 ```
 
-The signed-for-testing release APK is written to
-`build/app/outputs/flutter-apk/app-release.apk`. It uses the template's debug
-signing key so it can be installed directly; F-Droid rebuilds and signs the app
-with its own key.
+The release APK is written to `build/app/outputs/flutter-apk/app-release.apk`.
+
+### Release signing
+
+Release builds use a project keystore when `android/key.properties` exists, and
+fall back to the Flutter template debug key when it does not. Create the file
+locally with:
+
+```properties
+storeFile=/absolute/path/to/release.jks
+storePassword=...
+keyAlias=...
+keyPassword=...
+```
+
+`key.properties` and all `*.jks` / `*.keystore` files are git-ignored. Never
+commit them. F-Droid rebuilds and signs the app with its own key; the debug-key
+fallback exists so local and CI builds work without the keystore.
 
 ### Offline builds
 
@@ -56,11 +71,20 @@ Flutter's release engine artifacts normally come from
 unreachable, mirror the Maven layout locally and point Flutter at it:
 
 ```sh
-FLUTTER_STORAGE_BASE_URL=file:///path/to/local/mirror flutter build apk --release
+FLUTTER_STORAGE_BASE_URL=file:///path/to/flutter-mirror flutter build apk --release
 ```
 
 The mirror must contain the `io.flutter:flutter_embedding_release` and
 `io.flutter:<abi>_release` artifacts for the pinned engine version.
+
+Android Gradle dependencies can be served from a local Maven mirror by adding
+the repository path to `android/local.properties`:
+
+```properties
+local.maven=/path/to/android-maven-mirror
+```
+
+`android/local.properties` is git-ignored as well.
 
 ## Word data
 
@@ -87,9 +111,12 @@ See `tool/worddata/README.md` and `LICENSES.md` for the sources and terms.
 ```
 lib/domain/          word pool, shuffle engine and cue timing
 lib/playback/        session controller and native channel wrapper
-lib/ui/              Material 3 screens and theme
-lib/l10n/            English and Spanish ARB resources
+lib/core/            persisted settings and app metadata
+lib/ui/              Material 3 screens, shared widgets and theme
+l10n/                English and Spanish ARB resources
 android/.../kotlin/  foreground service, TTS, procedural noise, media session
+assets/words/        generated English and Spanish cue pools
+fastlane/metadata/   F-Droid store listing, changelogs and icons
 tool/worddata/       reproducible word-pool pipeline
 test/                engine, data, settings and widget tests
 ```
@@ -108,8 +135,9 @@ test/                engine, data, settings and widget tests
 - OEM battery managers may still stop background audio. The app uses a
   foreground service and a partial wake lock, but some vendors require an
   explicit battery-optimisation exception.
-- Release builds are signed with the Flutter template debug key for local
-  testing. F-Droid uses its own signing key.
+- Release builds are signed with the project keystore when
+  `android/key.properties` is present, otherwise with the Flutter template debug
+  key. F-Droid uses its own signing key.
 
 ## License
 
