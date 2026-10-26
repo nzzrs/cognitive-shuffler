@@ -40,11 +40,14 @@ class SessionService : Service() {
         private const val ACTION_EXTEND = "io.github.nzrs.cognitiveshuffler.EXTEND"
         private const val ACTION_UPDATE_NOISE =
             "io.github.nzrs.cognitiveshuffler.UPDATE_NOISE"
+        private const val ACTION_UPDATE_SPEECH_VOLUME =
+            "io.github.nzrs.cognitiveshuffler.UPDATE_SPEECH_VOLUME"
         private const val EXTRA_MINUTES = "minutes"
         private const val EXTRA_ENABLED = "enabled"
         private const val EXTRA_VOLUME = "volume"
         private const val EXTRA_COLOR = "color"
         private const val EXTRA_WARMTH = "warmth"
+        private const val EXTRA_SPEECH_VOLUME = "speechVolume"
 
         @Volatile
         private var pendingPlan: String? = null
@@ -92,6 +95,13 @@ class SessionService : Service() {
             context.startService(intent)
         }
 
+        fun updateSpeechVolume(context: Context, volume: Float) {
+            val intent = Intent(context, SessionService::class.java)
+                .setAction(ACTION_UPDATE_SPEECH_VOLUME)
+                .putExtra(EXTRA_SPEECH_VOLUME, volume)
+            context.startService(intent)
+        }
+
         fun snapshot(): Map<String, Any?> = current?.snapshot()
             ?: mapOf(
                 "running" to false,
@@ -131,6 +141,7 @@ class SessionService : Service() {
     private var paused = false
     private var finished = false
 
+    private var speechVolume = 0.8f
     private var noiseEnabled = true
     private var noiseVolume = 0.35f
     private var noiseColor = 0.3f
@@ -171,6 +182,9 @@ class SessionService : Service() {
                 color = intent.getFloatExtra(EXTRA_COLOR, noiseColor),
                 warmth = intent.getFloatExtra(EXTRA_WARMTH, noiseWarmth),
             )
+            ACTION_UPDATE_SPEECH_VOLUME -> updateSpeechVolume(
+                intent.getFloatExtra(EXTRA_SPEECH_VOLUME, speechVolume),
+            )
         }
         return START_NOT_STICKY
     }
@@ -198,6 +212,7 @@ class SessionService : Service() {
             return
         }
         plan = parsed
+        speechVolume = parsed.speechVolume
         noiseEnabled = parsed.noise.enabled
         noiseVolume = parsed.noise.volume
         noiseColor = parsed.noise.color
@@ -234,6 +249,7 @@ class SessionService : Service() {
             context = this,
             language = parsed.language,
             rate = parsed.rate,
+            initialVolume = speechVolume,
             onReady = {
                 handler.post {
                     if (!finished) emitState()
@@ -376,6 +392,11 @@ class SessionService : Service() {
             warmth = noiseWarmth,
             enabled = enabled,
         )
+    }
+
+    private fun updateSpeechVolume(volume: Float) {
+        speechVolume = volume.coerceIn(0f, 1f)
+        speech?.setVolume(speechVolume)
     }
 
     private fun finishSession(emitFinished: Boolean = true) {

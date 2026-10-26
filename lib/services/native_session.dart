@@ -38,6 +38,9 @@ class NativeSession {
     'warmth': warmth,
   });
 
+  Future<void> updateSpeechVolume(double volume) =>
+      _channel.invokeMethod<void>('updateSpeechVolume', {'volume': volume});
+
   Future<Map<String, dynamic>> state() async {
     final value = await _channel.invokeMethod<dynamic>('getState');
     if (value is Map) return Map<String, dynamic>.from(value);
@@ -53,20 +56,4 @@ class NativeSession {
 
   Future<void> setKeepScreenOn(bool enabled) =>
       _channel.invokeMethod<void>('setKeepScreenOn', {'enabled': enabled});
-}
-
-class SystemAccent {
-  static const MethodChannel _channel = MethodChannel(
-    'io.github.nzrs.cognitiveshuffler/theme',
-  );
-
-  static Future<int?> load() async {
-    try {
-      return await _channel.invokeMethod<int>('getAccentColor');
-    } on PlatformException {
-      return null;
-    } on MissingPluginException {
-      return null;
-    }
-  }
 }

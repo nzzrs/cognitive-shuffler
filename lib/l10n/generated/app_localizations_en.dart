@@ -35,15 +35,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get noise => 'Noise';
 
   @override
-  String get on => 'On';
-
-  @override
-  String get off => 'Off';
-
-  @override
-  String get cueLanguage => 'Cue language';
-
-  @override
   String get english => 'English';
 
   @override
@@ -65,13 +56,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get endSession => 'End session';
 
   @override
-  String get noTimer => 'No timer';
-
-  @override
   String get paused => 'Paused';
-
-  @override
-  String get noiseSheetTitle => 'Noise';
 
   @override
   String get level => 'Level';
@@ -87,9 +72,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get deep => 'Deep';
-
-  @override
-  String get showWords => 'Show words';
 
   @override
   String get screenHint => 'You can turn the screen off. Playback continues.';
@@ -115,9 +97,6 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get defaultTimer => 'Default timer';
-
-  @override
   String get fadeOut => 'Fade out';
 
   @override
@@ -128,9 +107,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get showWordsOnScreen => 'Show words on screen';
-
-  @override
-  String get noiseDefaults => 'Noise';
 
   @override
   String get playNoise => 'Play noise';
@@ -185,18 +161,12 @@ class AppLocalizationsEn extends AppLocalizations {
       'Word pools are generated from Princeton WordNet, FrequencyWords (OpenSubtitles), MultiWordNet, the Brysbaert concreteness ratings and the MEGAHit concreteness lexicon. The app and its word data are free software under the GNU GPL v3 and CC BY-SA 4.0.';
 
   @override
-  String get aboutLicense => 'GNU General Public License v3.0 or later';
-
-  @override
   String version(String version) {
     return 'Version $version';
   }
 
   @override
   String get close => 'Close';
-
-  @override
-  String get done => 'Done';
 
   @override
   String ttsUnavailable(String language) {
@@ -214,16 +184,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get startFailed => 'The session could not start.';
 
   @override
-  String get methodTitle => 'A small experiment for a busy mind';
-
-  @override
-  String get methodBody =>
-      'Picture each word as a simple scene. Do not connect the words. When a word disappears, let the next one arrive.';
-
-  @override
-  String get help => 'About cognitive shuffling';
-
-  @override
   String get pink => 'Pink';
 
   @override
@@ -231,4 +191,125 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get sessionEnded => 'Session ended';
+
+  @override
+  String get cuesSection => 'Cues';
+
+  @override
+  String get sleepSection => 'Sleep';
+
+  @override
+  String get appSection => 'App';
+
+  @override
+  String get theme => 'Theme';
+
+  @override
+  String get licenses => 'Licences';
+
+  @override
+  String get dynamicColorHint => 'Uses the colours from your wallpaper.';
+
+  @override
+  String get noiseOn => 'Noise on';
+
+  @override
+  String get noiseOff => 'Noise off';
+
+  @override
+  String get returnToSession => 'Return to session';
+
+  @override
+  String get sessionInProgress => 'Session in progress';
+
+  @override
+  String get endSessionQuestion => 'End session?';
+
+  @override
+  String get endSessionBody => 'The words and noise will stop.';
+
+  @override
+  String get keepListening => 'Keep listening';
+
+  @override
+  String get extendFifteen => '+15 min';
+
+  @override
+  String get customDuration => 'Custom duration';
+
+  @override
+  String get minutesLabel => 'Minutes';
+
+  @override
+  String get setLabel => 'Set';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get durationRangeError => 'Enter a value between 1 and 720 minutes.';
+
+  @override
+  String get voiceVolume => 'Voice volume';
+
+  @override
+  String get soundSheetTitle => 'Sound';
+
+  @override
+  String get oledMode => 'OLED mode';
+
+  @override
+  String get oledModeHint =>
+      'Black screen with only the words and pause button.';
+
+  @override
+  String get oledInstructions => 'Tap to pause. Double tap to show controls.';
+
+  @override
+  String get howToUse => 'How to use this?';
+
+  @override
+  String get howToTitle => 'A small exercise for a busy mind';
+
+  @override
+  String get howToIntro =>
+      'Cognitive shuffling gives your mind unrelated, easy-to-picture words. You are not trying to force sleep. You are giving racing thoughts nothing to hold on to.';
+
+  @override
+  String get howToStep1 =>
+      'Lie down and dim the room. Put the phone down; the words keep going.';
+
+  @override
+  String get howToStep2 =>
+      'Let one concrete word arrive. Picture it as a simple scene, without judging the scene.';
+
+  @override
+  String get howToStep3 =>
+      'Do not connect the words into a story. Let each scene appear, then fade.';
+
+  @override
+  String get howToStep4 =>
+      'When a thought pulls you away, notice it and return to the next word.';
+
+  @override
+  String get howToStep5 =>
+      'Keep the voice low. The sleep timer fades the words out so you can stop paying attention.';
+
+  @override
+  String get howToWhyTitle => 'Why it may help';
+
+  @override
+  String get howToWhy =>
+      'The method is also called serial diverse imagining. It fills working memory with random, emotionally neutral images, making it harder for the mind to keep rehearsing worried thoughts, one of the main drivers of pre-sleep arousal. The evidence is early and limited; this is not a treatment for chronic insomnia.';
+
+  @override
+  String get howToReferenceTitle => 'Study reference';
+
+  @override
+  String get howToReference =>
+      'Digdon, N., & Beaudoin, L. P. (2015). A test of the somnolent mentation theory and the cognitive shuffle insomnia treatment. Poster presented at the 37th Annual Conference of the Cognitive Science Society.';
+
+  @override
+  String get howToDisclaimer =>
+      'This app is a sleep aid, not a medical treatment. If insomnia persists, talk to a clinician.';
 }

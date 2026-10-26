@@ -17,6 +17,7 @@ class AppSettingsController extends ChangeNotifier {
   static const _kTimer = 'timer_minutes';
   static const _kInterval = 'interval_seconds';
   static const _kVoiceRate = 'voice_rate';
+  static const _kSpeechVolume = 'speech_volume';
   static const _kNoiseEnabled = 'noise_enabled';
   static const _kNoiseVolume = 'noise_volume';
   static const _kNoiseColor = 'noise_color';
@@ -26,6 +27,7 @@ class AppSettingsController extends ChangeNotifier {
   static const _kShowWords = 'show_words';
   static const _kThemeMode = 'theme_mode';
   static const _kDynamicColor = 'dynamic_color';
+  static const _kOledMode = 'oled_mode';
 
   final SharedPreferences _prefs;
 
@@ -34,6 +36,7 @@ class AppSettingsController extends ChangeNotifier {
   late int timerMinutes;
   late int intervalSeconds;
   late double voiceRate;
+  late double speechVolume;
   late bool noiseEnabled;
   late double noiseVolume;
   late double noiseColor;
@@ -43,6 +46,7 @@ class AppSettingsController extends ChangeNotifier {
   late bool showWords;
   late String themeMode;
   late bool dynamicColor;
+  late bool oledMode;
 
   static Future<AppSettingsController> load() async {
     final prefs = await SharedPreferences.getInstance();
@@ -55,6 +59,7 @@ class AppSettingsController extends ChangeNotifier {
     controller.timerMinutes = prefs.getInt(_kTimer) ?? 30;
     controller.intervalSeconds = prefs.getInt(_kInterval) ?? 8;
     controller.voiceRate = prefs.getDouble(_kVoiceRate) ?? 0.88;
+    controller.speechVolume = prefs.getDouble(_kSpeechVolume) ?? 0.8;
     controller.noiseEnabled = prefs.getBool(_kNoiseEnabled) ?? true;
     controller.noiseVolume = prefs.getDouble(_kNoiseVolume) ?? 0.35;
     controller.noiseColor = prefs.getDouble(_kNoiseColor) ?? 0.3;
@@ -64,6 +69,7 @@ class AppSettingsController extends ChangeNotifier {
     controller.showWords = prefs.getBool(_kShowWords) ?? true;
     controller.themeMode = prefs.getString(_kThemeMode) ?? 'dark';
     controller.dynamicColor = prefs.getBool(_kDynamicColor) ?? true;
+    controller.oledMode = prefs.getBool(_kOledMode) ?? false;
     return controller;
   }
 
@@ -74,8 +80,6 @@ class AppSettingsController extends ChangeNotifier {
     'system' => ThemeMode.system,
     _ => ThemeMode.dark,
   };
-
-  String get wordLanguageLabel => wordLanguage == 'es' ? 'Español' : 'English';
 
   void setUiLanguage(String value) {
     if (uiLanguage == value) return;
@@ -109,6 +113,13 @@ class AppSettingsController extends ChangeNotifier {
     if ((voiceRate - value).abs() < 0.001) return;
     voiceRate = value;
     _writeDouble(_kVoiceRate, value);
+    notifyListeners();
+  }
+
+  void setSpeechVolume(double value) {
+    if ((speechVolume - value).abs() < 0.001) return;
+    speechVolume = value;
+    _writeDouble(_kSpeechVolume, value);
     notifyListeners();
   }
 
@@ -172,6 +183,13 @@ class AppSettingsController extends ChangeNotifier {
     if (dynamicColor == value) return;
     dynamicColor = value;
     _writeBool(_kDynamicColor, value);
+    notifyListeners();
+  }
+
+  void setOledMode(bool value) {
+    if (oledMode == value) return;
+    oledMode = value;
+    _writeBool(_kOledMode, value);
     notifyListeners();
   }
 

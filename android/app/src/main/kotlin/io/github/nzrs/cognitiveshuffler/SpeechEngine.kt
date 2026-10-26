@@ -2,6 +2,7 @@ package io.github.nzrs.cognitiveshuffler
 
 import android.content.Context
 import android.media.AudioAttributes
+import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.speech.tts.UtteranceProgressListener
 import java.util.Locale
@@ -17,11 +18,15 @@ class SpeechEngine(
     context: Context,
     private val language: String,
     private val rate: Float,
+    initialVolume: Float,
     private val onReady: () -> Unit,
     private val onError: (String) -> Unit,
 ) {
     private val appContext = context.applicationContext
     private var tts: TextToSpeech? = null
+
+    @Volatile
+    private var volume: Float = initialVolume.coerceIn(0f, 1f)
 
     @Volatile
     var ready: Boolean = false
@@ -87,16 +92,23 @@ class SpeechEngine(
 
     fun speak(word: String): Boolean {
         if (!ready) return false
+        val params = Bundle().apply {
+            putFloat(TextToSpeech.Engine.KEY_PARAM_VOLUME, volume)
+        }
         return try {
             tts?.speak(
                 word,
                 TextToSpeech.QUEUE_FLUSH,
-                null,
+                params,
                 "cue-${System.nanoTime()}",
             ) == TextToSpeech.SUCCESS
         } catch (_: Exception) {
             false
         }
+    }
+
+    fun setVolume(value: Float) {
+        volume = value.coerceIn(0f, 1f)
     }
 
     fun stop() {

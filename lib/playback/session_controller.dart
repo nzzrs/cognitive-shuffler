@@ -120,6 +120,7 @@ class SessionController extends ChangeNotifier {
             .toList(growable: false),
         'language': settings.wordLanguage,
         'rate': settings.voiceRate,
+        'speechVolume': settings.speechVolume,
         'timerMinutes': settings.timerMinutes,
         'fadeInMs': 15000,
         'fadeOutMs': settings.fadeOutSeconds * 1000,
@@ -132,7 +133,7 @@ class SessionController extends ChangeNotifier {
         'keepScreenOn': settings.keepAwake,
       });
 
-      _subscription ??= _native.events.listen(_onEvent);
+      _ensureListening();
 
       await _native.start(payload);
       final totalMs = settings.timerMinutes > 0
@@ -246,17 +247,31 @@ class SessionController extends ChangeNotifier {
     }
   }
 
+  Future<void> updateSpeechVolume() async {
+    if (!_status.running) return;
+    try {
+      await _native.updateSpeechVolume(settings.speechVolume);
+    } on PlatformException {
+      // Ignore transient channel errors while adjusting a slider.
+    } on MissingPluginException {
+      // Unsupported platform or widget test.
+    }
+  }
+
   Future<void> sync() async {
     try {
       final state = await _native.state();
       if (state.isEmpty) return;
+      final running = state['running'] as bool? ?? _status.running;
+      if (running) _ensureListening();
       final total = (state['totalMs'] as num?)?.toInt() ?? _status.totalMs;
       final remaining =
           (state['remainingMs'] as num?)?.toInt() ?? _status.remainingMs;
       _set(
         _status.copyWith(
-          running: state['running'] as bool? ?? _status.running,
+          running: running,
           paused: state['paused'] as bool? ?? _status.paused,
+          completed: !running && (_status.completed || _status.running),
           word: state['word'] as String?,
           index: (state['index'] as num?)?.toInt() ?? _status.index,
           remainingMs: remaining,
@@ -318,6 +333,10 @@ class SessionController extends ChangeNotifier {
         _notify();
         break;
     }
+  }
+
+  void _ensureListening() {
+    _subscription ??= _native.events.listen(_onEvent);
   }
 
   void _set(SessionStatus value) {

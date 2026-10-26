@@ -146,24 +146,6 @@ abstract class AppLocalizations {
   /// **'Noise'**
   String get noise;
 
-  /// No description provided for @on.
-  ///
-  /// In en, this message translates to:
-  /// **'On'**
-  String get on;
-
-  /// No description provided for @off.
-  ///
-  /// In en, this message translates to:
-  /// **'Off'**
-  String get off;
-
-  /// No description provided for @cueLanguage.
-  ///
-  /// In en, this message translates to:
-  /// **'Cue language'**
-  String get cueLanguage;
-
   /// No description provided for @english.
   ///
   /// In en, this message translates to:
@@ -206,23 +188,11 @@ abstract class AppLocalizations {
   /// **'End session'**
   String get endSession;
 
-  /// No description provided for @noTimer.
-  ///
-  /// In en, this message translates to:
-  /// **'No timer'**
-  String get noTimer;
-
   /// No description provided for @paused.
   ///
   /// In en, this message translates to:
   /// **'Paused'**
   String get paused;
-
-  /// No description provided for @noiseSheetTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Noise'**
-  String get noiseSheetTitle;
 
   /// No description provided for @level.
   ///
@@ -253,12 +223,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Deep'**
   String get deep;
-
-  /// No description provided for @showWords.
-  ///
-  /// In en, this message translates to:
-  /// **'Show words'**
-  String get showWords;
 
   /// No description provided for @screenHint.
   ///
@@ -302,12 +266,6 @@ abstract class AppLocalizations {
   /// **'{seconds} s'**
   String secondsShort(int seconds);
 
-  /// No description provided for @defaultTimer.
-  ///
-  /// In en, this message translates to:
-  /// **'Default timer'**
-  String get defaultTimer;
-
   /// No description provided for @fadeOut.
   ///
   /// In en, this message translates to:
@@ -331,12 +289,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Show words on screen'**
   String get showWordsOnScreen;
-
-  /// No description provided for @noiseDefaults.
-  ///
-  /// In en, this message translates to:
-  /// **'Noise'**
-  String get noiseDefaults;
 
   /// No description provided for @playNoise.
   ///
@@ -434,12 +386,6 @@ abstract class AppLocalizations {
   /// **'Word pools are generated from Princeton WordNet, FrequencyWords (OpenSubtitles), MultiWordNet, the Brysbaert concreteness ratings and the MEGAHit concreteness lexicon. The app and its word data are free software under the GNU GPL v3 and CC BY-SA 4.0.'**
   String get aboutSources;
 
-  /// No description provided for @aboutLicense.
-  ///
-  /// In en, this message translates to:
-  /// **'GNU General Public License v3.0 or later'**
-  String get aboutLicense;
-
   /// No description provided for @version.
   ///
   /// In en, this message translates to:
@@ -451,12 +397,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Close'**
   String get close;
-
-  /// No description provided for @done.
-  ///
-  /// In en, this message translates to:
-  /// **'Done'**
-  String get done;
 
   /// No description provided for @ttsUnavailable.
   ///
@@ -482,24 +422,6 @@ abstract class AppLocalizations {
   /// **'The session could not start.'**
   String get startFailed;
 
-  /// No description provided for @methodTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'A small experiment for a busy mind'**
-  String get methodTitle;
-
-  /// No description provided for @methodBody.
-  ///
-  /// In en, this message translates to:
-  /// **'Picture each word as a simple scene. Do not connect the words. When a word disappears, let the next one arrive.'**
-  String get methodBody;
-
-  /// No description provided for @help.
-  ///
-  /// In en, this message translates to:
-  /// **'About cognitive shuffling'**
-  String get help;
-
   /// No description provided for @pink.
   ///
   /// In en, this message translates to:
@@ -517,6 +439,228 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Session ended'**
   String get sessionEnded;
+
+  /// No description provided for @cuesSection.
+  ///
+  /// In en, this message translates to:
+  /// **'Cues'**
+  String get cuesSection;
+
+  /// No description provided for @sleepSection.
+  ///
+  /// In en, this message translates to:
+  /// **'Sleep'**
+  String get sleepSection;
+
+  /// No description provided for @appSection.
+  ///
+  /// In en, this message translates to:
+  /// **'App'**
+  String get appSection;
+
+  /// No description provided for @theme.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme'**
+  String get theme;
+
+  /// No description provided for @licenses.
+  ///
+  /// In en, this message translates to:
+  /// **'Licences'**
+  String get licenses;
+
+  /// No description provided for @dynamicColorHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Uses the colours from your wallpaper.'**
+  String get dynamicColorHint;
+
+  /// No description provided for @noiseOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Noise on'**
+  String get noiseOn;
+
+  /// No description provided for @noiseOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Noise off'**
+  String get noiseOff;
+
+  /// No description provided for @returnToSession.
+  ///
+  /// In en, this message translates to:
+  /// **'Return to session'**
+  String get returnToSession;
+
+  /// No description provided for @sessionInProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'Session in progress'**
+  String get sessionInProgress;
+
+  /// No description provided for @endSessionQuestion.
+  ///
+  /// In en, this message translates to:
+  /// **'End session?'**
+  String get endSessionQuestion;
+
+  /// No description provided for @endSessionBody.
+  ///
+  /// In en, this message translates to:
+  /// **'The words and noise will stop.'**
+  String get endSessionBody;
+
+  /// No description provided for @keepListening.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep listening'**
+  String get keepListening;
+
+  /// No description provided for @extendFifteen.
+  ///
+  /// In en, this message translates to:
+  /// **'+15 min'**
+  String get extendFifteen;
+
+  /// No description provided for @customDuration.
+  ///
+  /// In en, this message translates to:
+  /// **'Custom duration'**
+  String get customDuration;
+
+  /// No description provided for @minutesLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Minutes'**
+  String get minutesLabel;
+
+  /// No description provided for @setLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Set'**
+  String get setLabel;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @durationRangeError.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a value between 1 and 720 minutes.'**
+  String get durationRangeError;
+
+  /// No description provided for @voiceVolume.
+  ///
+  /// In en, this message translates to:
+  /// **'Voice volume'**
+  String get voiceVolume;
+
+  /// No description provided for @soundSheetTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Sound'**
+  String get soundSheetTitle;
+
+  /// No description provided for @oledMode.
+  ///
+  /// In en, this message translates to:
+  /// **'OLED mode'**
+  String get oledMode;
+
+  /// No description provided for @oledModeHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Black screen with only the words and pause button.'**
+  String get oledModeHint;
+
+  /// No description provided for @oledInstructions.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap to pause. Double tap to show controls.'**
+  String get oledInstructions;
+
+  /// No description provided for @howToUse.
+  ///
+  /// In en, this message translates to:
+  /// **'How to use this?'**
+  String get howToUse;
+
+  /// No description provided for @howToTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'A small exercise for a busy mind'**
+  String get howToTitle;
+
+  /// No description provided for @howToIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Cognitive shuffling gives your mind unrelated, easy-to-picture words. You are not trying to force sleep. You are giving racing thoughts nothing to hold on to.'**
+  String get howToIntro;
+
+  /// No description provided for @howToStep1.
+  ///
+  /// In en, this message translates to:
+  /// **'Lie down and dim the room. Put the phone down; the words keep going.'**
+  String get howToStep1;
+
+  /// No description provided for @howToStep2.
+  ///
+  /// In en, this message translates to:
+  /// **'Let one concrete word arrive. Picture it as a simple scene, without judging the scene.'**
+  String get howToStep2;
+
+  /// No description provided for @howToStep3.
+  ///
+  /// In en, this message translates to:
+  /// **'Do not connect the words into a story. Let each scene appear, then fade.'**
+  String get howToStep3;
+
+  /// No description provided for @howToStep4.
+  ///
+  /// In en, this message translates to:
+  /// **'When a thought pulls you away, notice it and return to the next word.'**
+  String get howToStep4;
+
+  /// No description provided for @howToStep5.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep the voice low. The sleep timer fades the words out so you can stop paying attention.'**
+  String get howToStep5;
+
+  /// No description provided for @howToWhyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Why it may help'**
+  String get howToWhyTitle;
+
+  /// No description provided for @howToWhy.
+  ///
+  /// In en, this message translates to:
+  /// **'The method is also called serial diverse imagining. It fills working memory with random, emotionally neutral images, making it harder for the mind to keep rehearsing worried thoughts, one of the main drivers of pre-sleep arousal. The evidence is early and limited; this is not a treatment for chronic insomnia.'**
+  String get howToWhy;
+
+  /// No description provided for @howToReferenceTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Study reference'**
+  String get howToReferenceTitle;
+
+  /// No description provided for @howToReference.
+  ///
+  /// In en, this message translates to:
+  /// **'Digdon, N., & Beaudoin, L. P. (2015). A test of the somnolent mentation theory and the cognitive shuffle insomnia treatment. Poster presented at the 37th Annual Conference of the Cognitive Science Society.'**
+  String get howToReference;
+
+  /// No description provided for @howToDisclaimer.
+  ///
+  /// In en, this message translates to:
+  /// **'This app is a sleep aid, not a medical treatment. If insomnia persists, talk to a clinician.'**
+  String get howToDisclaimer;
 }
 
 class _AppLocalizationsDelegate

@@ -15,6 +15,7 @@ class SessionPlan private constructor(
     val cues: List<Cue>,
     val language: String,
     val rate: Float,
+    val speechVolume: Float,
     val timerMinutes: Int,
     val fadeInMs: Long,
     val fadeOutMs: Long,
@@ -40,6 +41,8 @@ class SessionPlan private constructor(
                 cues = cues,
                 language = root.optString("language", "en"),
                 rate = root.optDouble("rate", 0.9).toFloat().coerceIn(0.5f, 1.4f),
+                speechVolume = root.optDouble("speechVolume", 0.8)
+                    .toFloat().coerceIn(0f, 1f),
                 timerMinutes = root.optInt("timerMinutes", 30).coerceAtLeast(0),
                 fadeInMs = root.optLong("fadeInMs", 15_000L).coerceAtLeast(0L),
                 fadeOutMs = root.optLong("fadeOutMs", 60_000L).coerceAtLeast(0L),

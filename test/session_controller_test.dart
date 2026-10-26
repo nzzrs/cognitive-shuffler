@@ -14,6 +14,9 @@ class _FakeNativeSession extends NativeSession {
   int pauses = 0;
   int resumes = 0;
   int stops = 0;
+  int extendCalls = 0;
+  int speechVolumeUpdates = 0;
+  Map<String, dynamic> snapshot = <String, dynamic>{};
 
   @override
   Stream<Map<String, dynamic>> get events => eventsController.stream;
@@ -36,7 +39,7 @@ class _FakeNativeSession extends NativeSession {
   Future<void> stop() async => stops += 1;
 
   @override
-  Future<void> extend(int minutes) async {}
+  Future<void> extend(int minutes) async => extendCalls += 1;
 
   @override
   Future<void> updateNoise({
@@ -47,7 +50,12 @@ class _FakeNativeSession extends NativeSession {
   }) async {}
 
   @override
-  Future<Map<String, dynamic>> state() async => <String, dynamic>{};
+  Future<void> updateSpeechVolume(double volume) async {
+    speechVolumeUpdates += 1;
+  }
+
+  @override
+  Future<Map<String, dynamic>> state() async => snapshot;
 
   @override
   Future<void> setKeepScreenOn(bool enabled) async {}
@@ -76,6 +84,7 @@ void main() {
     final cues = payload['cues'] as List<dynamic>;
     expect(cues.length, greaterThan(200));
     expect(payload['language'], 'en');
+    expect(payload['speechVolume'], 0.8);
     expect(payload['timerMinutes'], 30);
     expect(payload['noise']['enabled'], isTrue);
     expect((cues.first as Map<String, dynamic>)['t'], 1500);
@@ -103,6 +112,70 @@ void main() {
 
     await controller.stop();
     expect(native.stops, 1);
+    controller.dispose();
+    await native.eventsController.close();
+  });
+
+  test('recovers an active native session and extends it', () async {
+    SharedPreferences.setMockInitialValues({});
+    final settings = await AppSettingsController.load();
+    final native = _FakeNativeSession()
+      ..snapshot = <String, dynamic>{
+        'running': true,
+        'paused': false,
+        'word': 'harbor',
+        'index': 3,
+        'remainingMs': 600000,
+        'totalMs': 900000,
+      };
+    final controller = SessionController(settings: settings, native: native);
+
+    await controller.sync();
+    expect(controller.status.running, isTrue);
+    expect(controller.status.word, 'harbor');
+    expect(controller.status.remainingMs, 600000);
+    expect(controller.status.totalMs, 900000);
+
+    settings.setSpeechVolume(0.6);
+    await controller.updateSpeechVolume();
+    expect(native.speechVolumeUpdates, 1);
+
+    await controller.extend(15);
+    expect(native.extendCalls, 1);
+    expect(controller.status.totalMs, 900000 + 15 * 60 * 1000);
+    expect(controller.status.remainingMs, 600000 + 15 * 60 * 1000);
+
+    controller.dispose();
+    await native.eventsController.close();
+  });
+
+  test('marks a missed external finish as completed on sync', () async {
+    SharedPreferences.setMockInitialValues({});
+    final settings = await AppSettingsController.load();
+    final native = _FakeNativeSession()
+      ..snapshot = <String, dynamic>{
+        'running': true,
+        'paused': false,
+        'word': 'harbor',
+        'remainingMs': 600000,
+        'totalMs': 900000,
+      };
+    final controller = SessionController(settings: settings, native: native);
+    await controller.sync();
+    expect(controller.status.running, isTrue);
+    expect(controller.status.completed, isFalse);
+
+    native.snapshot = <String, dynamic>{
+      'running': false,
+      'paused': false,
+      'word': null,
+      'remainingMs': 0,
+      'totalMs': 0,
+    };
+    await controller.sync();
+    expect(controller.status.running, isFalse);
+    expect(controller.status.completed, isTrue);
+
     controller.dispose();
     await native.eventsController.close();
   });

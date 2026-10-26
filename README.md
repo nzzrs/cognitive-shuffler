@@ -11,16 +11,23 @@ builds.
 
 - **Cognitive shuffle cues** in English and Spanish, independently selectable
   from the interface language.
-- **Phone text-to-speech**, using the voice installed on the device. No large
-  model or proprietary engine is bundled.
+- **Phone text-to-speech**, using the voice installed on the device. Voice
+  volume is adjustable. No large model or proprietary engine is bundled.
 - **Procedural noise** generated on the phone: pink ↔ brown balance, volume and
   a single warmth macro (low-pass + low-end lift).
 - **Screen-off playback** through an Android foreground media service, with a
   media notification and Bluetooth/headset play/pause.
-- **Sleep timer** (15–90 minutes, or until stopped), 60-second fade out by
-  default, live **+15 min** action from the notification.
-- **Material 3 Expressive** interface: dynamic wallpaper colour when available,
-  expressive springy shapes, a true-dark night canvas.
+- **Sleep timer** chosen on the start screen (presets or any exact minute),
+  60-second fade out by default, live **+15 min** action from the session
+  screen and notification.
+- **OLED mode** for the session: pure black, only the word and an outlined
+  pause button. Tap to pause; double tap toggles the full controls.
+- **Immersive UI**: status and navigation bars stay hidden throughout the app.
+- **In-app guide** with a five-step method and the cognitive-shuffle study
+  reference.
+- **Material 3 Expressive** interface: a full wallpaper-derived colour scheme
+  when available, expressive shapes, a slowly breathing session backdrop and
+  a dark tonal session canvas.
 - **No network permission** in release builds, no analytics, no ads.
 
 ## Build

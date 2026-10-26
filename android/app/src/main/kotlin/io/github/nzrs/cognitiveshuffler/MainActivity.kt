@@ -15,8 +15,6 @@ class MainActivity : FlutterActivity() {
             "io.github.nzrs.cognitiveshuffler/session"
         private const val EVENT_CHANNEL =
             "io.github.nzrs.cognitiveshuffler/session_events"
-        private const val THEME_CHANNEL =
-            "io.github.nzrs.cognitiveshuffler/theme"
         private const val NOTIFICATION_PERMISSION_REQUEST = 7001
     }
 
@@ -65,6 +63,13 @@ class MainActivity : FlutterActivity() {
                     )
                     result.success(true)
                 }
+                "updateSpeechVolume" -> {
+                    SessionService.updateSpeechVolume(
+                        this,
+                        (call.argument<Double>("volume") ?: 0.8).toFloat(),
+                    )
+                    result.success(true)
+                }
                 "getState" -> result.success(SessionService.snapshot())
                 "requestNotificationPermission" ->
                     requestNotificationPermission(result)
@@ -87,23 +92,6 @@ class MainActivity : FlutterActivity() {
             flutterEngine.dartExecutor.binaryMessenger,
             EVENT_CHANNEL,
         ).setStreamHandler(SessionEvents)
-
-        MethodChannel(
-            flutterEngine.dartExecutor.binaryMessenger,
-            THEME_CHANNEL,
-        ).setMethodCallHandler { call, result ->
-            when (call.method) {
-                "getAccentColor" -> result.success(systemAccentColor())
-                else -> result.notImplemented()
-            }
-        }
-    }
-
-    private fun systemAccentColor(): Long? {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) return null
-        val id = resources.getIdentifier("system_accent1_500", "color", "android")
-        if (id == 0) return null
-        return resources.getColor(id, theme).toLong() and 0xFFFFFFFFL
     }
 
     private fun requestNotificationPermission(result: MethodChannel.Result) {
