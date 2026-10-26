@@ -49,3 +49,8 @@ app.*.map.json
 
 # Word-data cache
 tool/worddata/cache/
+
+# Release signing material
+key.properties
+*.jks
+*.keystore
